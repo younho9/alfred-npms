@@ -5,6 +5,9 @@ import cmdSubtitle from './source/cmd-subtitle.js';
 const q = /boost-exact:\S+/.test(alfy.input) ? alfy.input : `${alfy.input} boost-exact:false`;
 
 const data = await alfy.fetch('https://api.npms.io/v2/search', {
+	headers: {
+		Connection: 'keep-alive',
+	},
 	query: {
 		q,
 		size: 20,
